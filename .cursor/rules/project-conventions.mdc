@@ -1,0 +1,35 @@
+---
+description: Feature-based layout and AsriUI-only UI
+alwaysApply: true
+---
+
+# Project conventions
+
+## Feature-based layout
+
+```
+src/
+  app/                 # shell only (App.tsx)
+  features/<name>/     # one folder per product feature
+    ui/                # feature screens & presentational components
+    hooks/
+    model/             # types + reducers / domain state
+    lib/               # feature-private pure logic (e.g. json/)
+    worker/
+    constants/
+    utils/
+    index.ts           # public feature API
+  shared/              # cross-feature only (asriui facade, providers)
+```
+
+- Do not put feature types, constants, or JSON logic in `shared/`.
+- Import another feature only through its `features/<name>/index.ts` export.
+
+## UI (AsriUI)
+
+- Use `@/shared/asriui` for components; `asriui/style.css` in `main.tsx`.
+- `shared/providers` wraps `AsriUIProvider` and theme context.
+
+## Imports
+
+- Prefer `@/` alias; within a feature prefer relative imports (`../model/types`).

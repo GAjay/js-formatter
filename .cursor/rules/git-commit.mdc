@@ -1,0 +1,23 @@
+---
+description: Git commit message and safety rules for this repo
+alwaysApply: true
+---
+
+# Git commits
+
+- Create commits only when the user explicitly asks.
+- Never amend unless the user requests it and the last commit was unpushed local work.
+- Never skip hooks, force-push to main, or change git config.
+
+## Message style
+
+- One or two sentences focused on **why**, not a file list.
+- Prefix intent when helpful: `feat:`, `fix:`, `refactor:`, `docs:`, `chore:`.
+
+## Example
+
+```
+feat: add sort-keys action for nested JSON objects
+
+Users can normalize key order before sharing API payloads.
+```
